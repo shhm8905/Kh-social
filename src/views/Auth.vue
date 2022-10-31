@@ -65,14 +65,14 @@
             <i class="fa fa-image"></i>
             <span>Choose your background image</span>
           </label>
-          <input type="file" id="bg_img" v-on:change="handleChange" />
+          <input type="file" id="bg_img" required v-on:change="handleChange" />
         </div>
         <div class="avatar-inp">
           <label for="avatar">
             <i class="fa fa-user-circle"></i>
             <span>Choose your avatar</span>
           </label>
-          <input type="file" id="avatar" v-on:change="handleChange" />
+          <input type="file" id="avatar" required v-on:change="handleChange" />
         </div>
       </div>
 
