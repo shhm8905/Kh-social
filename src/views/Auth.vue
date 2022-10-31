@@ -198,14 +198,14 @@ export default {
           setTimeout(() => {
             this.$router.push("/");
             this.isSubmit = false;
-          }, 1500);
+          }, 1800);
         }
       } else {
         this.signIn(signIn);
         setTimeout(() => {
           this.$router.push("/");
           this.isSubmit = false;
-        }, 1500);
+        }, 1800);
       }
     },
   },
