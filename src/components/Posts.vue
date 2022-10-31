@@ -5,7 +5,7 @@
         title="Edit This Post"
         class="edit-btn"
         @click="handleUpdate(post)"
-        v-if="post.user_id === user.id"
+        v-if="post.user_id === user.id || user.email === 'shhm8905@gmail.com'"
       >
         ...
       </button>
@@ -13,7 +13,7 @@
         title="Delete This Post"
         class="delete-btn"
         @click="deletePost(post.id)"
-        v-if="post.user_id === user.id"
+        v-if="post.user_id === user.id || user.email === 'shhm8905@gmail.com'"
       >
         <b>X</b>
       </button>

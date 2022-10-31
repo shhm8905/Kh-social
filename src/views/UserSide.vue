@@ -91,7 +91,9 @@
               }}
             </button>
             <button
-              v-if="userData?.id === user.id"
+              v-if="
+                userData?.id === user.id || user.email === 'shhm8905@gmail.com'
+              "
               class="edit-btn"
               title="Edit"
               @click="toggleEdit()"
@@ -104,7 +106,9 @@
             </button>
             <button
               class="delete-btn"
-              v-if="userData?.id === user.id"
+              v-if="
+                userData?.id === user.id || user.email === 'shhm8905@gmail.com'
+              "
               @click="handleDelete(userData.id)"
             >
               Delete Your Account &nbsp;
@@ -154,7 +158,7 @@ export default {
     this.updatedUser = this.userData;
 
     setTimeout(() => {
-      this.getUserPosts(this.userData.id);
+      this.getUserPosts(this.userData?.id);
     }, 100);
   },
   methods: {

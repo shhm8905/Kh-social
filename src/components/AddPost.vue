@@ -17,6 +17,7 @@
         cols="20"
         rows="4"
         placeholder="What do You want talk about?"
+        required
       ></textarea>
       <div class="add-content">
         <div class="form-controller">

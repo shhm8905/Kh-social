@@ -5,7 +5,12 @@
         <img :src="user.avatar" />
       </figure>
       <form class="comment-controller" @submit.prevent="handleSubmit()">
-        <input type="text" placeholder="Add a comment..." v-model="text" />
+        <input
+          type="text"
+          placeholder="Add a comment..."
+          v-model="text"
+          required
+        />
         <button class="add-comment-btn" type="submit">Put up</button>
       </form>
     </div>
