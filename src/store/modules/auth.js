@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: `${process.env.URL_API}/users` });
+const API = axios.create({ baseURL: `${process.env?.VUE_APP_URL}/users` });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("user")) {

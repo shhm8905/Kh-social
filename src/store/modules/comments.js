@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: `${process.env.URL_API}/comments`,
+  baseURL: `${process.env?.VUE_APP_URL}/comments`,
 });
 
 API.interceptors.request.use((req) => {
