@@ -1,0 +1,112 @@
+.header {
+  grid-area: header;
+  height: 110px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border: 1px solid #000;
+  .header-container {
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #333;
+    .header-info {
+      display: flex;
+      align-items: center;
+
+      .avatar-img-container {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #eee;
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          border-radius: 50%;
+        }
+      }
+
+      button.add-post {
+        margin-left: 10px;
+        width: 89%;
+        padding: 15px;
+        border-radius: 39px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-size: 1.1rem;
+        background-color: rgb(20, 20, 20);
+        color: #eee;
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: scale(0.96);
+          border: 1px solid #eee;
+        }
+      }
+    }
+    .header-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      padding-top: 15px;
+      padding-left: 50px;
+      li {
+        list-style: none;
+        color: #eee;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.2);
+        }
+        i.img {
+          color: rgb(6, 220, 106);
+          font-size: 20px;
+        }
+        i.vid {
+          color: red;
+          font-size: 20px;
+        }
+        i.file {
+          color: lightcoral;
+          font-size: 20px;
+        }
+        i.file-img {
+          color: rgb(6, 202, 220);
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1619px) {
+  .header {
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 1265px) {
+  .header {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 871px) {
+  .header {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 655px) {
+  .header {
+    width: 100%;
+    .header-icons {
+      gap: 10px !important;
+      padding-left: 10px !important;
+    }
+  }
+}

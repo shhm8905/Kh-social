@@ -1,0 +1,74 @@
+.rightsidebar {
+  grid-area: right;
+  background-color: #000;
+
+  .right-container {
+    position: sticky;
+    top: 0;
+    width: 60%;
+    background-color: #333;
+    border-radius: 5px;
+    .right-content {
+      h2 {
+        text-align: center;
+        padding: 20px 0;
+        color: #eee;
+        font-weight: lighter;
+        border-bottom: 2px solid #000;
+      }
+      .user-item {
+        .user-container {
+          padding: 20px 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 2px solid #000;
+          .user-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            .user-avatar {
+              width: 50px;
+              height: 50px;
+              border: 2px solid #eee;
+              border-radius: 50%;
+              .user-img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+            }
+            .user-name {
+              color: #eee;
+              cursor: pointer;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+          button {
+            background-color: transparent;
+            border: 2px solid #666;
+            border-radius: 39px;
+            padding: 10px;
+            color: #eee;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              transform: scale(0.96);
+              border-color: #e2ede2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1619px) {
+  .rightsidebar {
+    display: none;
+  }
+}
