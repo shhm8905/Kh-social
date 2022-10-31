@@ -1,10 +1,12 @@
 # Kh-social
 
-![Screenshot from 2022-07-21 03-23-05](https://user-images.githubusercontent.com/57298635/199017268-76e1a758-19bf-48d0-8164-7ea066035ad2.png)
+
+![Screenshot from 2022-10-31 11-53-32](https://user-images.githubusercontent.com/57298635/199018059-02b1ff1a-4946-40a8-9ffd-b43237fb742d.png)
 
 ### As a user, you can follow a new user, create your own post, like and comment on other posts
 
-![Screenshot from 2022-07-19 22-26-31](https://user-images.githubusercontent.com/57298635/199017557-4ea0540f-a7dc-4e44-b627-ecd2dd07f65d.png)
+![Screenshot from 2022-10-31 11-54-40](https://user-images.githubusercontent.com/57298635/199018097-e5fe938f-c7d6-444d-ad50-dcc7fa90d68f.png)
+
 
 ## Project setup
 ```
