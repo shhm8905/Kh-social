@@ -19,11 +19,20 @@
     animation: spinner 0.5s linear infinite;
   }
 }
+
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .spinner {
+    .loading {
+      left: 39%;
+    }
   }
 }
