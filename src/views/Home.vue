@@ -7,7 +7,7 @@
       <LeftSidebar />
       <RightSidebar />
       <Posts />
-      <Spinner v-if="!allposts" />
+      <Spinner v-if="allposts.length < 1" />
     </div>
   </div>
   <Spinner v-else />

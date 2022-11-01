@@ -38,6 +38,12 @@
         />
       </div>
 
+      <p
+        class="error"
+        v-if="this.error_Password"
+        v-text="this.error_Password"
+      ></p>
+
       <div class="auth-controller" v-if="isSignUp">
         <input
           type="text"
@@ -53,7 +59,12 @@
         />
       </div>
 
-      <select class="auth-relation" v-model="userData.relation" v-if="isSignUp">
+      <select
+        class="auth-relation"
+        v-model="userData.relation"
+        v-if="isSignUp"
+        required
+      >
         <option value="Single">Single</option>
         <option value="Engaged">Engaged</option>
         <option value="Married">Married</option>
@@ -63,18 +74,21 @@
         <div class="bg_inp">
           <label for="bg_img">
             <i class="fa fa-image"></i>
-            <span>Choose your background image</span>
+            <span v-if="this.bg_value" v-text="this.bg_value"></span>
+            <span v-else>Choose your background image</span>
           </label>
-          <input type="file" id="bg_img" required v-on:change="handleChange" />
+          <input type="file" id="bg_img" v-on:change="handleChange" />
         </div>
         <div class="avatar-inp">
           <label for="avatar">
             <i class="fa fa-user-circle"></i>
-            <span>Choose your avatar</span>
+            <span v-if="this.avatar_value" v-text="this.avatar_value"></span>
+            <span v-else>Choose your avatar</span>
           </label>
-          <input type="file" id="avatar" required v-on:change="handleChange" />
+          <input type="file" id="avatar" v-on:change="handleChange" />
         </div>
       </div>
+      <p class="error" v-if="this.error && isSignUp" v-text="this.error"></p>
 
       <button type="submit" class="btn submit-btn">
         {{ isSignUp ? "SignUp" : "SignIn" }}
@@ -99,6 +113,10 @@ export default {
   name: "AuthComp",
   data() {
     return {
+      avatar_value: "",
+      bg_value: "",
+      error: "",
+      error_Password: "",
       isSubmit: false,
       isSignUp: true,
       userData: {
@@ -120,9 +138,11 @@ export default {
       this.isSignUp = !this.isSignUp;
     },
     handleChange(e) {
+      this.error = "";
       const file = e.target.files[0];
       if (e.target.id === "avatar") {
         if (file) {
+          this.avatar_value = e.target.files[0].name;
           const reader = new FileReader();
           reader.readAsDataURL(file);
           reader.onload = () => {
@@ -149,6 +169,7 @@ export default {
         }
       } else if (e.target.id === "bg_img") {
         if (file) {
+          this.bg_value = e.target.files[0].name;
           const reader = new FileReader();
           reader.readAsDataURL(file);
           reader.onload = () => {
@@ -176,7 +197,6 @@ export default {
       }
     },
     handleSubmit() {
-      this.isSubmit = true;
       const signUp = {
         id: Math.floor(Math.random() * 10000000),
         userName: this.userData.userName,
@@ -193,7 +213,13 @@ export default {
         password: this.userData.pass,
       };
       if (this.isSignUp) {
-        if (this.userData.pass === this.userData.pass1) {
+        if (!signUp.bg_img && !signUp.avatar) {
+          this.error = "Please select your background image and your avatar!!!";
+        } else if (this.userData.pass !== this.userData.pass1) {
+          this.error_Password = "Passwords not matches!!!";
+        } else {
+          this.error_Password = "";
+          this.isSubmit = true;
           this.signUp(signUp);
           setTimeout(() => {
             this.$router.push("/");
@@ -201,6 +227,7 @@ export default {
           }, 1800);
         }
       } else {
+        this.isSubmit = true;
         this.signIn(signIn);
         setTimeout(() => {
           this.$router.push("/");

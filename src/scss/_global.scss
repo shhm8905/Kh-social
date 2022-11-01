@@ -25,6 +25,10 @@
   }
   .avatar-name {
     color: rgb(147, 147, 147);
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -45,6 +49,12 @@
   color: #eee;
   font-family: "Dancing Script", cursive;
   font-size: 40px;
+  text-align: center;
+}
+
+.error {
+  padding: 10px 0 20px;
+  color: rgb(255, 55, 78);
   text-align: center;
 }
 

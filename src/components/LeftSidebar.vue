@@ -42,7 +42,7 @@ export default {
       this.getUserPosts(id);
       setTimeout(() => {
         this.$router.push("/user");
-      }, 100);
+      }, 500);
     },
     handleLogout() {
       this.logout();

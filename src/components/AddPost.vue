@@ -19,6 +19,7 @@
         placeholder="What do You want talk about?"
         required
       ></textarea>
+      <p class="error" v-if="this.error" v-text="this.error"></p>
       <div class="add-content">
         <div class="form-controller">
           <label for="img"><i class="img fa fa-image"></i></label>
@@ -54,6 +55,7 @@ export default {
 
   data() {
     return {
+      error: "",
       formData: { description: "", selectedImg: "", selectedVideo: "" },
     };
   },
@@ -65,10 +67,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(["addPost", "updatePost"]),
+    ...mapActions(["addPost", "updatePost", "getPosts"]),
     ...mapMutations(["handleClose"]),
 
     handleChange(e) {
+      this.error = "";
       const file = e.target.files[0];
       if (e.target.id === "img") {
         if (file) {
@@ -138,10 +141,24 @@ export default {
           isComment: 0,
         };
         this.updatePost(updatedPost);
+        this.getPosts();
         this.handleClose();
       } else {
-        this.addPost(post);
-        this.handleClose();
+        if (post.selectedImg && !post.selectedVideo) {
+          this.addPost(post);
+          setTimeout(() => {
+            this.getPosts();
+            this.handleClose();
+          }, 2000);
+        } else if (!post.selectedImg && post.selectedVideo) {
+          this.addPost(post);
+          setTimeout(() => {
+            this.getPosts();
+            this.handleClose();
+          }, 2000);
+        } else {
+          this.error = "Please select image or video!!!";
+        }
       }
     },
   },

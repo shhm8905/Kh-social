@@ -36,7 +36,9 @@ export default {
     handleUser(id) {
       this.getUser(id);
       this.getUserPosts(id);
-      this.$router.push("/user");
+      setTimeout(() => {
+        this.$router.push("/user");
+      }, 500);
     },
     handleFollow(id) {
       this.follow(id);

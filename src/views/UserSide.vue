@@ -126,7 +126,7 @@
       <Posts />
       <Navbar />
     </div>
-    <Spinner v-if="!allposts" />
+    <Spinner v-if="allposts.length < 1 && !userData" />
   </div>
 </template>
 

@@ -23,7 +23,9 @@
         <figure class="avatar-container">
           <img class="avatar-img" :src="post.creator.avatar" />
         </figure>
-        <p class="avatar-name">{{ post.creator.userName }}</p>
+        <p class="avatar-name" @click="handleUser(post.user_id)">
+          {{ post.creator.userName }}
+        </p>
       </div>
       <p class="post-desc" v-text="post.description"></p>
 
@@ -86,12 +88,26 @@ export default {
   components: { AddComment, Comments },
 
   methods: {
-    ...mapActions(["getPosts", "deletePost", "likePost", "getUserPosts"]),
+    ...mapActions([
+      "getPosts",
+      "deletePost",
+      "likePost",
+      "getUserPosts",
+      "getUser",
+    ]),
     ...mapMutations(["handleShow", "getPost", "toggleComment"]),
 
     handleUpdate(post) {
       this.handleShow();
       this.getPost(post);
+    },
+
+    handleUser(id) {
+      this.getUser(id);
+      this.getUserPosts(id);
+      setTimeout(() => {
+        this.$router.push("/user");
+      }, 500);
     },
 
     handleLike(id) {
