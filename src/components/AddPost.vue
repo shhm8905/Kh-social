@@ -149,13 +149,13 @@ export default {
           setTimeout(() => {
             this.getPosts();
             this.handleClose();
-          }, 2000);
+          }, 200);
         } else if (!post.selectedImg && post.selectedVideo) {
           this.addPost(post);
           setTimeout(() => {
             this.getPosts();
             this.handleClose();
-          }, 2000);
+          }, 200);
         } else {
           this.error = "Please select image or video!!!";
         }
